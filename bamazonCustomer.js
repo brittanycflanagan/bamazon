@@ -43,7 +43,7 @@ function whichProduct() { // add res
         
         connection.query("SELECT stock_quantity, price FROM products WHERE ?", {item_id: answers.whichProduct}, function(err, res) {
           //  console.log(stock[0].stock_quantity, parseInt(answers.howMany));
-          console.log(res[0].stock_quantity, res[0].price);
+         // console.log(res[0].stock_quantity, res[0].price);
           if (parseInt(answers.howMany) <= res[0].stock_quantity) {
                  var newStock = res[0].stock_quantity - parseInt(answers.howMany);
                 
@@ -55,6 +55,7 @@ function whichProduct() { // add res
             } 
             else {
                 console.log("Sorry, there is not enough stock available to fulfill that purchase");
+                whichProduct();
             }
         });
 
