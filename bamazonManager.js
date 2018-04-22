@@ -5,7 +5,7 @@ var connection = mysql.createConnection({
     host: "localhost",
     port: 3306,
     user: "root",
-    password: "",
+    password: "Snickers428!",
     database: "bamazon"
   });
 
@@ -32,7 +32,7 @@ var connection = mysql.createConnection({
                 AddtoInventory();
             }
             else if (answer.menu === "d" || answer.menu === "D") {
-                console.log("You chose D");
+                AddNewProduct();
             }
             else {console.log("That is not a valid choice");}
         });
@@ -93,5 +93,40 @@ function  AddtoInventory() {
             //     console.log("That is not a valid item code, please ensure the code is typed in ALL CAPS and does not contain spaces.")
             //     }
     });
+});
+}
+
+
+function AddNewProduct() {
+    inquirer.prompt([
+            {name: "item_id",
+            type: "input",
+            message: "Please Enter the Item's ID Number:"},
+            {name: "product_name",
+            type: "input",
+            message: "Please Enter the Item's Product Name:"},
+            {name: "department_name",
+            type: "input",
+            message: "Please Enter Department name:"},
+            {name: "price",
+            type: "input",
+            message: "Please Enter the Item's Price:"},
+            {name: "stock_quantity",
+            type: "input",
+            message: "Please Enter Stock:"}
+        ]).then(function(answer) { 
+    connection.query("INSERT INTO products SET ?",
+    {   
+        item_id: answer.item_id,
+        product_name: answer.product_name,
+        department_name: answer.department_name,
+        price: answer.price,
+        stock_quantity: answer.stock_quantity,
+      },
+        function(err) {
+          if (err) throw err;
+          console.log("Your new product was added successfully!");
+       
+        });
 });
 }

@@ -5,7 +5,7 @@ var connection = mysql.createConnection({
   host: "localhost",
   port: 3306,
   user: "root",
-  password: "",
+  password: "Snickers428!",
   database: "bamazon"
 });
 
@@ -40,7 +40,6 @@ function whichProduct() { // add res
         message: "How many units would you like to purchase?"},
     ])
     .then(function(answers) {       
-        
         connection.query("SELECT stock_quantity, price FROM products WHERE ?", {item_id: answers.whichProduct}, function(err, res) {
           //  console.log(stock[0].stock_quantity, parseInt(answers.howMany));
          // console.log(res[0].stock_quantity, res[0].price);
