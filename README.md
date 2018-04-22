@@ -1,5 +1,6 @@
 # BAMAZON APPLICATION
-* First, ensure you have installed all necessary node packages. <a href="https://drive.google.com/file/d/1ynM5OKvcuNzsDYOCXxtAGsIYla5lNCrh/view?usp=sharing">Watch video here</a>
+* First, ensure you have installed all necessary node packages.
+* <a href="https://drive.google.com/file/d/1ynM5OKvcuNzsDYOCXxtAGsIYla5lNCrh/view?usp=sharing">Watch video here</a>
 
 ## Customer Application:
 * Upon running applicaiton, it will provide a list of available products. It will then ask you which item you would like to purchase and instruct you to enter the item ID.
